@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+        --r-main-font-size: 24px;
+        --r-heading-margin: 20px 0 12px 0;
+      }
+
+      .slides {
+        width: 75% !important;
+      }
+
+      .container {
+        top: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+      }
+      .column {
+        flex: 1;
+      }
+
+      ul {
+        width: 100%;
+      }
+
+      section {
+        text-align: left;
+      }
+
+      .popover {
+        position: absolute;
+        background-color: #4d4d4d;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        border-radius: 10px;
+        width: auto;
+        transform: translate(35px, -15px);
+      }
+      .popover:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -10px;
+        border-style: solid;
+        border-width: 25px 25px 0;
+        border-color: #4d4d4d transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+        transform: translate(-50%, 50%) rotate(90deg);
+      }
+      .reveal pre code {
+        max-height: 800px !important;
+      }
+    </style>
+    <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <link
+      rel="stylesheet"
+      href="/node_modules/reveal.js/dist/theme/black.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/reveal.js/plugin/highlight/monokai.css"
+    />
+    <title>Lesson 1</title>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Holochain Fundamentals</h1>
+        </section>
+
+        <section>
+          <h2>Code Structure</h2>
+        </section>
+
+        <section>
+          <h2>Code Structure</h2>
+          <h3 class="typed">DNA</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            Union of these components:
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Source code</li>
+              <li class="fragment fade-in-then-semi-out">Properties</li>
+              <li class="fragment fade-in-then-semi-out">
+                UID: arbitrary string
+              </li>
+            </ul>
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            Is identified by the hash of its components
+          </li>
+        </section>
+
+        <section>
+          <h2>Code Structure</h2>
+          <h3>Zomes</h3>
+
+          <li class="fragment fade-in-then-semi-out">DNA code module</li>
+          <li class="fragment fade-in-then-semi-out">
+            2 types
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Integrity zomes: affect the DNA hash and can't be changed
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">
+                    Entry and link types
+                  </li>
+                  <li class="fragment fade-in-then-semi-out">
+                    Genesis self-check callback
+                  </li>
+                  <li class="fragment fade-in-then-semi-out">
+                    Validation rules
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                Coordinator zomes: don't affect the DNA hash and can be changed
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">CRUD functions</li>
+                  <li class="fragment fade-in-then-semi-out">P2P calls</li>
+                  <li class="fragment fade-in-then-semi-out">
+                    Other callbacks (eg. init)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            Example: collaborative document editing
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Coordinator zomes
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">Document zome</li>
+                  <li class="fragment fade-in-then-semi-out">Comments zome</li>
+                  <li class="fragment fade-in-then-semi-out">Role zome</li>
+                </ul>
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                Integrity zome
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">
+                    Genesis self callback
+                    <ul>
+                      <li class="fragment fade-in-then-semi-out">
+                        No membrane proof required
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="fragment fade-in-then-semi-out">
+                    Validation rules
+                    <ul>
+                      <li class="fragment fade-in-then-semi-out">
+                        Only agents with the "Editor" role can edit the document
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </section>
+
+        <section>
+          <h2>Code Structure</h2>
+          <h3>DNA manifest & bundle</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            Manifest declares:
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Human readable name
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                Zomes that will be included in the DNA
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">Their names</li>
+                  <li class="fragment fade-in-then-semi-out">
+                    The location of their compiled source code
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                Provisional properties
+              </li>
+              <li class="fragment fade-in-then-semi-out">Provisional UID</li>
+            </ul>
+          </li>
+
+          <li class="fragment fade-in-then-semi-out">
+            Manifest is packaged into a DNA bundle
+          </li>
+          <!-- TODO: include dna.yaml sample? -->
+        </section>
+
+        <section>
+          <h2>Code Structure</h2>
+          <h3>hApp manifest & bundle</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            Manifest declares:
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Human readable name
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                DNAs that will be included in the hApp
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">
+                    Their role ids (names)
+                  </li>
+                  <li class="fragment fade-in-then-semi-out">
+                    The location of their DNA bundle
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="fragment fade-in-then-semi-out">
+            Manifest is packaged into a hApp bundle
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            The conductor can directly install hApp bundles
+          </li>
+        </section>
+
+        <section>
+          <h2>Runtime Architecture</h2>
+          <h3>Cell</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            Unique per-agent instantiation of a DNA
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Is identified by the union of an agent ID, and a DNA hash
+              </li>
+            </ul>
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            Has access to a private data storage
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            Only accessible via permissioned functions:
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                By a signed zome function call received from outside the
+                conductor
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                By other cells from its network (with the same DNA hash)
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                By other cells in the same conductor
+              </li>
+            </ul>
+          </li>
+          <li class="fragment fade-in-then-semi-out">
+            Can receive these parameters when it is instantiated:
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                Parameters that change the resulting DNA hash:
+
+                <ul>
+                  <li class="fragment fade-in-then-semi-out">
+                    Properties: change the behaviour of the DNA
+                  </li>
+                  <li class="fragment fade-in-then-semi-out">
+                    UID: arbitrary string
+                  </li>
+                </ul>
+              </li>
+
+              <li class="fragment fade-in-then-semi-out">
+                Membrane proof: may be required to instantiate the Cell
+              </li>
+            </ul>
+          </li>
+        </section>
+
+        <section>
+          <h3>hApp (Holochain App)</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            One of Rust's most distinctive features
+          </li>
+        </section>
+        <section>
+          <h3>Conductor</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            One of Rust's most distinctive features
+          </li>
+        </section>
+        <section>
+          <h3>DNA</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            One of Rust's most distinctive features
+          </li>
+        </section>
+        <section>
+          <h3>Holochain's DHT</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            One of Rust's most distinctive features
+          </li>
+        </section>
+        <section>
+          <h3>Source Chain</h3>
+
+          <li class="fragment fade-in-then-semi-out">
+            One of Rust's most distinctive features
+          </li>
+        </section>
+      </div>
+    </div>
+
+    <script type="module">
+      import Reveal from "reveal.js";
+      import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
+      import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
+      import RevealNotes from "reveal.js/plugin/notes/notes.esm.js";
+      import RevealNestedFragments from "reveal.js-nested-fragments";
+      import Typed from "typed.js";
+
+      let deck = new Reveal({
+        transition: "none",
+        plugins: [
+          Markdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealNestedFragments,
+
+          () => ({
+            id: "nested-fragments",
+            init: (deck) => {
+              var typed = new Typed(".typed", {});
+            },
+          }),
+        ],
+      });
+      deck.initialize();
+    </script>
+  </body>
+</html>
