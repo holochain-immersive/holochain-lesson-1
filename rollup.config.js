@@ -2,7 +2,6 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import html from "@web/rollup-plugin-html";
 import { terser } from "rollup-plugin-terser";
-
 export default {
   input: "index.html",
   output: {
@@ -13,7 +12,6 @@ export default {
     dir: "dist",
   },
   preserveEntrySignatures: false,
-
   plugins: [
     /** Enable using HTML as rollup entrypoint */
     html({

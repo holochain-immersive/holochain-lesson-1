@@ -8,7 +8,6 @@
     />
     <meta name="Description" content="Put your description here." />
     <base href="/" />
-
     <style>
       html,
       body {
@@ -19,11 +18,9 @@
         --r-main-font-size: 24px;
         --r-heading-margin: 20px 0 12px 0;
       }
-
       .slides {
         width: 75% !important;
       }
-
       .container {
         top: 0 !important;
         display: flex !important;
@@ -37,15 +34,12 @@
         display: flex;
         flex-direction: row;
       }
-
       ul {
         width: 100%;
       }
-
       section {
         text-align: left;
       }
-
       .popover {
         position: absolute;
         background-color: #4d4d4d;
@@ -71,7 +65,6 @@
       .reveal pre code {
         max-height: 800px !important;
       }
-
       .dna {
         background-color: green;
       }
@@ -81,7 +74,6 @@
       .coordinator-zomes {
         background-color: lightblue;
       }
-
       .dna,
       .cell,
       .zome,
@@ -103,7 +95,6 @@
       }
     </style>
     <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
-
     <link
       rel="stylesheet"
       href="/node_modules/reveal.js/dist/theme/black.css"
@@ -114,17 +105,18 @@
     />
     <title>Holochain Lesson 1</title>
   </head>
-
   <body>
     <div class="reveal">
       <div class="slides">
+
         <section>
+
           <h1>Holochain Fundamentals</h1>
         </section>
 
         <section>
-          <h2>Holochain Architecture</h2>
 
+          <h2>Holochain Architecture</h2>
           <div class="row">
             <div class="column" style="align-items: center">
               <svg
@@ -406,7 +398,6 @@
                   <div class="dht-shard">DHT Shard</div>
                 </div>
               </div>
-
               <div
                 class="conductor column"
                 style="
@@ -419,7 +410,6 @@
                 <span>Conductor</span>
                 <div class="column happ" style="">
                   Happ 1
-
                   <div class="column" style="margin-top: 244px">
                     <div class="cell column">
                       Cell 2
@@ -429,14 +419,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="row" style="align-self: end">
                   <div class="box">App Interface</div>
                   <div class="box">Admin Interface</div>
                 </div>
               </div>
             </div>
-
             <div class="column" style="margin-left: 80px; flex: 1">
               <div class="column">
                 <div class="zome">Zome 1</div>
@@ -464,99 +452,51 @@
         </section>
 
         <section>
-          <h3>DNA</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            Union of these components:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">Source code</li>
-              <li class="fragment fade-in-then-semi-out">Properties</li>
-              <li class="fragment fade-in-then-semi-out">
-                UID: arbitrary string
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Is identified by the hash of its components
-          </li>
+          <h3>DNA</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+            - Union of several data:
+              - Integrity Code
+                - Defining Validation Rules
+              - Properties
+                - Arbitrary configuration data
+              - Network Seed
+                - Glorified property to uniquify equivalent looking networks
+            - Is identified by the hash of its components
+          </fragment>
         </section>
 
         <section>
+
           <h3>Zomes</h3>
 
           <div class="row">
+            
             <div style="flex: 1">
-              <li class="fragment fade-in-then-semi-out">
-                Source code modules that form a DNA
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                2 types
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    Integrity zomes
-                    <ul>
-                      <li class="fragment fade-in-then-semi-out">
-                        Included in the hash function to compute the DNA hash.
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        Can’t be updated, if you change them you have created a
+          <fragment language="markdown" animate="by-line with-ancestry">
+              - Source code modules that form a DNA
+              - 2 types
+                  - Integrity zomes
+                      - Included in the hash function to compute the DNA hash.
+                      - Can't be updated, if you change them you have created a
                         new DNA.
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        They declare:
-
-                        <ul>
-                          <li class="fragment fade-in-then-semi-out">
-                            Entry and link types
-                          </li>
-                          <li class="fragment fade-in-then-semi-out">
-                            Genesis self-check callback
-
-                            <ul>
+                      - They declare:
+                          - Entry and link types
+                          - Genesis self-check callback
                               <!-- TODO: talk about what's the genesis self-check callback? Brings up more questions, like what are the membrane proofs? -->
-                              <li class="fragment fade-in-then-semi-out">
-                                Will run when you are installing an application
-                              </li>
-                              <li class="fragment fade-in-then-semi-out">
-                                If it fails, the installation process fails
-                              </li>
-                            </ul>
-                          </li>
-                          <li class="fragment fade-in-then-semi-out">
-                            Validation rules
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Coordinator zomes
-                    <ul>
-                      <li class="fragment fade-in-then-semi-out">
-                        Not included in the hash function to compute the DNA
+                              - Will run when you are installing an application
+                              - If it fails, the installation process fails
+                          - Validation rules
+                  - Coordinator zomes
+                      - Not included in the hash function to compute the DNA
                         hash
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        Can be updated, you can change them without changing the
+                      - Can be updated, you can change them without changing the
                         DNA hash
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        They declare:
-                        <ul>
-                          <li class="fragment fade-in-then-semi-out">
-                            CRUD functions
-                          </li>
-                          <li class="fragment fade-in-then-semi-out">
-                            Other callbacks (eg. init)
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+                      - They declare:
+                          - CRUD functions
+                          - Other callbacks (eg. init)
+          </fragment>
             </div>
-
             <div style="flex: 1">
               <div class="column dna fragment">
                 <span> Collaborative document DNA </span>
@@ -574,7 +514,6 @@
                 >
                   <div class="zome">
                     Integrity zome
-
                     <div
                       class="popover fragment"
                       style="top: 16px; left: 148px"
@@ -590,510 +529,302 @@
         </section>
 
         <section>
+
           <h3>DNA manifest & bundle</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
           <!-- TODO: I don't think manifest and bundles are necessary in the first lesson, we can move them to developer environment? -->
-
-          <li class="fragment fade-in-then-semi-out">
-            Manifest declares:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Human readable name
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Zomes that will be included in the DNA
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">Their names</li>
-                  <li class="fragment fade-in-then-semi-out">
-                    The location of their compiled source code
-                  </li>
-                </ul>
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Provisional properties
-              </li>
-              <li class="fragment fade-in-then-semi-out">Provisional UID</li>
-            </ul>
-          </li>
-
-          <li class="fragment fade-in-then-semi-out">
-            Manifest is packaged into a DNA bundle
-          </li>
+          - Manifest declares:
+              - Human readable name
+              - Zomes that will be included in the DNA
+                  - Their names
+                  - The location of their compiled source code
+               
+              - Provisional properties
+              - Provisional UID
+          
+          - Manifest is packaged into a DNA bundle
+        </fragment>
           <!-- TODO: include dna.yaml sample? -->
         </section>
 
         <section>
+
           <h3>hApp manifest & bundle</h3>
-
+          <fragment language="markdown" animate="by-line with-ancestry">
           <!-- TODO: I don't think manifest and bundles are necessary in the first lesson, we can move them to developer environment? -->
-          <li class="fragment fade-in-then-semi-out">
-            Manifest declares:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Human readable name
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                DNAs that will be included in the hApp
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    Their role ids (names)
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    The location of their DNA bundle
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Provisionging strategy: whether to create a new cell on
+          - Manifest declares:
+              - Human readable name
+              - DNAs that will be included in the hApp
+                  - Their role ids (names)
+                  - The location of their DNA bundle
+                  - Provisionging strategy: whether to create a new cell on
                     install
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+               
+           
 
-          <li class="fragment fade-in-then-semi-out">
-            Manifest is packaged into a hApp bundle
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            The conductor can directly install hApp bundles
-          </li>
+          - Manifest is packaged into a hApp bundle
+          - The conductor can directly install hApp bundles
+        </fragment>
           <!-- TODO: include dna.yaml sample? -->
         </section>
 
         <section>
+
           <h2>Runtime Architecture</h2>
         </section>
+
         <section>
+
           <h3>Cell</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Unique per-agent instantiation of a DNA
+              - Is identified by the union of an agent ID, and a DNA hash
+           
+          - Has access to:
+              - A private data storage: the source chain
+              - A shared and public data storage: the DHT
+           
+          - Only accessible via permissioned zome function calls:
+              - By an external process connected to the Conductor (eg. GUIs)
+              - By other cells from its network (with the same DNA hash)
+              - By other cells in the same conductor
+           
+          - Can receive these parameters when it is instantiated:
+              - Parameters that change the resulting DNA hash:
+                
+                  - Properties: change the behaviour of the DNA
+                  - UID: arbitrary string
+               
 
-          <li class="fragment fade-in-then-semi-out">
-            Unique per-agent instantiation of a DNA
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Is identified by the union of an agent ID, and a DNA hash
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Has access to:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                A private data storage: the source chain
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                A shared and public data storage: the DHT
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Only accessible via permissioned zome function calls:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                By an external process connected to the Conductor (eg. GUIs)
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                By other cells from its network (with the same DNA hash)
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                By other cells in the same conductor
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Can receive these parameters when it is instantiated:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Parameters that change the resulting DNA hash:
-
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    Properties: change the behaviour of the DNA
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    UID: arbitrary string
-                  </li>
-                </ul>
-              </li>
-
-              <li class="fragment fade-in-then-semi-out">
-                Membrane proof: may be required to instantiate the Cell
-              </li>
-            </ul>
-          </li>
+              - Membrane proof: may be required to instantiate the Cell
+           
+       </fragment>   
         </section>
 
         <section>
+
           <h3>Merkle Trees</h3>
-          <li class="fragment fade-in-then-semi-out">
-            Merkle tree are DAGs in which new objects can reference other
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Merkle tree are DAGs in which new objects can reference other
             objects by its hash
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            A merkle chain is a merkle tree that has no branches
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            It becomes impossible to change one object in the list without
+          - A merkle chain is a merkle tree that has no branches
+          - It becomes impossible to change one object in the list without
             changing all of the following objects in the chain, making a
             tampering attempt impossible
-          </li>
+       </fragment>   
         </section>
+
         <section>
+
           <h3>Source Chain (I)</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
           <!-- TODO: add the source-chain element from the playground? -->
-
-          <li class="fragment fade-in-then-semi-out">
-            A Source Chain is a Holochain specific merkle chain
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each Cell controls its own local source chain
-          </li>
-          d
-          <li class="fragment fade-in-then-semi-out">
-            The chain contains all the actions that a Cell has taken, announce
+          - A Source Chain is a Holochain specific merkle chain
+          - Each Cell controls its own local source chain
+          - The chain contains all the actions that a Cell has taken, announce
             within the scope of the network
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each action contains the hash of the previous action, making the
+          - Each action contains the hash of the previous action, making the
             source chain a merkle chain
-          </li>
+       </fragment>   
         </section>
 
         <section>
-          <h3>Source Chain (II)</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            Each action is signed by its author
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each action may be accompanied by some entry, defined by the
+          <h3>Source Chain (II)</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Each action is signed by its author
+          - Each action may be accompanied by some entry, defined by the
             application
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                The action is public in the DHT for the Cell
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                The entry may be private or public, as defined by the
+              - The action is public in the DHT for the Cell
+              - The entry may be private or public, as defined by the
                 application
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each action contains:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Author's public key
-              </li>
-              <li class="fragment fade-in-then-semi-out">Timestamp</li>
-              <li class="fragment fade-in-then-semi-out">
-                Hash of the previous action
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Entry hash, if it's accompanied by an entry
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            A record is a union of an action and its entry
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            <!-- TODO: how to format this Extra credit? -->
+           
+          - Each action contains:
+              - Author's public key
+              - Timestamp
+              - Hash of the previous action
+              - Entry hash, if it's accompanied by an entry
+           
+          - A record is a union of an action and its entry
+          - <!-- TODO: how to format this Extra credit? -->
             Extra credit: This merkle chain is used to preserve privacy and data
             integrity. If any action was private, then agents would be able to
             fork their chain without nobody noticing.
-          </li>
+       </fragment>   
         </section>
 
         <section>
-          <h3>Source Chain (III)</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            At boot time, each source chain will be instantiated with 3 records:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                DNA: includes the DNA hash.
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                AgentValidationPackage: joining proof that satisfies the
+          <h3>Source Chain (III)</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - At boot time, each source chain will be instantiated with 3 records:
+              - DNA: includes the DNA hash.
+              - AgentValidationPackage: joining proof that satisfies the
                 requirements that the DNA rules declare, making the 3rd record
                 valid
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Cryptographic signatures: signing and verifying functions.
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Create record of its own agent public key. Analogy: your phone
+              - Cryptographic signatures: signing and verifying functions.
+              - Create record of its own agent public key. Analogy: your phone
                 number in the network.
-              </li>
-            </ul>
-          </li>
+           
+       </fragment>   
         </section>
 
         <section>
-          <h3>Hash-Table</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            Key-value store that allocates a bigger chunk of memory than
+          <h3>Hash-Table</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Key-value store that allocates a bigger chunk of memory than
             necessary
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            To insert a value, we hash the **key**, and put the content in the
+          - To insert a value, we hash the **key**, and put the content in the
             position of memory that corresponds to that hash
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Constant lookup and write time
-          </li>
+          - Constant lookup and write time
 
           <h3 class="fragment fade-in-then-semi-out">
             Cryptographic Hash-Table
           </h3>
-
-          <li class="fragment fade-in-then-semi-out">
-            Key-value store where the key is the cryptographic hash of the
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Key-value store where the key is the cryptographic hash of the
             **value**
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            After lookup, you can hash the data again and compare it to the
+          - After lookup, you can hash the data again and compare it to the
             querying hash to verify that you are not being lied to
-          </li>
 
           <h3 class="fragment fade-in-then-semi-out">
             Distributed cryptographic Hash-Table (DHTs)
           </h3>
-
-          <li class="fragment fade-in-then-semi-out">
-            Cryptographic Hash-Table where the hash-table is spread accross many
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Cryptographic Hash-Table where the hash-table is spread accross many
             nodes
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each node can make a get request with the hash of some value, and
+          - Each node can make a get request with the hash of some value, and
             the network will return the value itself
-          </li>
+       </fragment>   
         </section>
 
         <section>
+
           <h3>Holochain's DHT (I)</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Two type of network queries:
+              - Get a value from its hash
+              - Get the metadata attached to a given hash
+           
 
-          <li class="fragment fade-in-then-semi-out">
-            Two type of network queries:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Get a value from its hash
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Get the metadata attached to a given hash
-              </li>
-            </ul>
-          </li>
-
-          <li class="fragment fade-in-then-semi-out">
-            Guarantees:
-            <ul>
-              <li class="fragment fade-in-then-semi-out"></li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            1st guarantee: data integrity:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                You can verify that the data is correct since you can hash it
+          - Guarantees:
+              - 
+          
+          - 1st guarantee: data integrity:
+              - You can verify that the data is correct since you can hash it
                 again like in any cryptographic hash-table.
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Actions are guaranteed to come from its author because they are
+              - Actions are guaranteed to come from its author because they are
                 signed.
-              </li>
-            </ul>
-          </li>
+           
 
-          <li class="fragment fade-in-then-semi-out">
-            2nd guarantee: the DHT is resilient:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Censorship resistance : it would be impractical for the network
+          - 2nd guarantee: the DHT is resilient:
+              - Censorship resistance : it would be impractical for the network
                 to selectively censor a piece of data in the hash-table.
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Availability: pieces of data will likely still be in the network
+              - Availability: pieces of data will likely still be in the network
                 even in outage scenarios (pieces of data are likely to be held
                 in the network).
-              </li>
-            </ul>
-          </li>
+           
+       </fragment>   
         </section>
 
         <section>
-          <h3>Holochain's DHT (I)</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            3rd guarantee:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Consistency:
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    The pieces of data cannot contradict one another.
-                  </li>
-                </ul>
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Eventual consistency:
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    CRDTs:
-                    <ul>
-                      <li class="fragment fade-in-then-semi-out">
-                        There is no universal sequence of order of events valid
+          <h3>Holochain's DHT (I)</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - 3rd guarantee:
+              - Consistency:
+                  - The pieces of data cannot contradict one another.
+               
+              - Eventual consistency:
+                  - CRDTs:
+                      - There is no universal sequence of order of events valid
                         (as per relativity), and consequently order of events in
                         distributed systems is hard!
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        Data structure that only implements commutative
+                      - Data structure that only implements commutative
                         operations.
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        And it implements a state machine that reduces a state
+                      - And it implements a state machine that reduces a state
                         from a set of operations.
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        Any agent given the same operations will arrive at the
+                      - Any agent given the same operations will arrive at the
                         same end state.
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">
-                        The DHT is a big CRDT.
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    The data state converges to being free of internal
+                      - The DHT is a big CRDT.
+                   
+                  - The data state converges to being free of internal
                     contradiction.
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    There is a guarantee that operations will get to you
+                  - There is a guarantee that operations will get to you
                     eventually.
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Reveals its own temporary inconsistencies.
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Holochain provides a way to resolve the temporary
+                  - Reveals its own temporary inconsistencies.
+                  - Holochain provides a way to resolve the temporary
                     inconsistencies.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+               
+           
+       </fragment>   
         </section>
 
         <section>
+
           <h3>hApp (Holochain App)</h3>
-
-          <li class="fragment fade-in-then-semi-out">
-            An assemblage of instantiated cells, among which an agent id is
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - An assemblage of instantiated cells, among which an agent id is
             shared
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Each cell has its own role ID
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                Eg: in a file storage app, you may have two cells installed:
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    “main”: the main DHT that everyone that installs the app
+          - Each cell has its own role ID
+              - Eg: in a file storage app, you may have two cells installed:
+                  - “main”: the main DHT that everyone that installs the app
                     joins
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    “file_storage_provider”: only joined by high-storage nodes
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Can depend on cells from other hApps
-          </li>
+                  - “file_storage_provider”: only joined by high-storage nodes
+               
+           
+          - Can depend on cells from other hApps
+       </fragment>   
         </section>
 
         <section>
-          <h3>Conductor: the Holochain node</h3>
 
-          <li class="fragment fade-in-then-semi-out">
-            Local process that houses all of your running happs
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Offers a sandboxed execution environment with limited capacities to
+          <h3>Conductor: the Holochain node</h3>
+          <fragment language="markdown" animate="by-line with-ancestry">
+          - Local process that houses all of your running happs
+          - Offers a sandboxed execution environment with limited capacities to
             each cell
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                There is no access to APIs to the underlying OS, eg:
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">Filesystem</li>
-                  <li class="fragment fade-in-then-semi-out">
-                    HTTP network calls
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Provides a mechanism of communication across cells
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Manages all network communications
-          </li>
-          <li class="fragment fade-in-then-semi-out">
-            Exposes two types of interface, accessible via websockets:
-            <ul>
-              <li class="fragment fade-in-then-semi-out">
-                App Interface
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    Receives zome function calls
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Can send push signals to subscribers
-                  </li>
-                </ul>
-              </li>
-              <li class="fragment fade-in-then-semi-out">
-                Admin Interface
-                <ul>
-                  <li class="fragment fade-in-then-semi-out">
-                    Cannot be accessed from an app
-                  </li>
-                  <li class="fragment fade-in-then-semi-out">
-                    Receives admin commands to manage apps
-                    <ul>
-                      <li class="fragment fade-in-then-semi-out">
-                        Install App
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">Enable App</li>
-                      <li class="fragment fade-in-then-semi-out">
-                        Uninstall App
-                      </li>
-                      <li class="fragment fade-in-then-semi-out">List Apps</li>
-                      <li class="fragment fade-in-then-semi-out">...</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+              - There is no access to APIs to the underlying OS, eg:
+                  - Filesystem
+                  - HTTP network calls
+               
+           
+          - Provides a mechanism of communication across cells
+          - Manages all network communications
+          - Exposes two types of interface, accessible via websockets:
+              - App Interface
+                  - Receives zome function calls
+                  - Can send push signals to subscribers
+               
+              - Admin Interface
+                  - Cannot be accessed from an app
+                  - Receives admin commands to manage apps
+                      - Install App
+                      - Enable App
+                      - Uninstall App
+                      - List Apps
+                      - ...
+                  
+              
+       </fragment>   
         </section>
+        <!-- TODO: Talk about DHT Ops at the end of this lesson or in the beginning of the next one? -->
       </div>
     </div>
-
     <script type="module">
       import Reveal from "reveal.js";
       import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
       import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
       import RevealNotes from "reveal.js/plugin/notes/notes.esm.js";
-      import RevealNestedFragments from "reveal.js-nested-fragments";
-
+      import RevealAnimateFragments from "reveal.js-animate-fragments";
       let deck = new Reveal({
         transition: "none",
         plugins: [
           Markdown,
           RevealHighlight,
           RevealNotes,
-          RevealNestedFragments,
+          RevealAnimateFragments,
         ],
       });
       deck.initialize();
