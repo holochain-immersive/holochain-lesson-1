@@ -461,18 +461,17 @@
         </section>
 
         <section>
-          <h3></h3>
-
           <fragment language="markdown" animate="by-line with-ancestry">
-            ### Network Requirements
+            ### Desirable features of a peer-to-peer network
 
-            - We want a p2p framework that:
-              - Is scalable
-                - No consensus, peers can change state without having all the other peers agree
-              - Can guarantee data availability
-                - Is resilient to network partitions
-              - Is resilient to bad actors
-                - If some node is not behaving according to the rules of the game, they can be easily identified and protected against
+            - Scalable
+              - No consensus, peers can change state without having all the other peers agree
+            - Data availability
+              - Resilient to network partitions
+            - Consistency
+              - Data never reaches an irreconcilable state
+            - Resilient to bad actors
+              - If some node is not behaving according to the rules of the game, they can be easily identified and protected against
           </fragment>
         </section>
 
@@ -487,7 +486,7 @@
             ### Cryptographic Hash-Table
           
             - Key-value store where the key is the cryptographic hash of the **value**
-            - After lookup, you can hash the data again and compare it to the querying hash to verify that you are not being lied to
+            - After lookup, you can hash the retrieved value again, compare it to the input key, and verify that you are not being lied to
 
             ### Distributed cryptographic Hash-Table (DHTs)
           
@@ -515,9 +514,10 @@
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Merkle Trees
 
-            - Merkle tree are DAGs in which new objects can reference other               objects by its hash
-            - A merkle chain is a merkle tree that has no branches
-            - It becomes impossible to change one object in the list without changing all of the following objects in the chain, making a tampering attempt impossible
+            - A merkle tree (technically a DAG) is one where new nodes reference one or more prior nodes by its hash
+            - It's impossible to change a node in a merkle tree without changing all of downstream nodes as well (or else invalidating the hashes)
+              - Undetected tampering is impossible
+            - A merkle chain is a merkle tree without branching
           </fragment>
         </section>
 
@@ -657,8 +657,8 @@
                 - You can verify that the data is correct since you can hash it again like in any cryptographic hash-table.
                 - Records are guaranteed to come from its author because they are signed.
               - 2nd guarantee: the DHT is resilient:
-                - Censorship resistance : it would be impractical for the network to selectively censor a piece of data in the hash-table.
-                - Availability: pieces of data will likely still be in the network even in outage scenarios (pieces of data are likely to be held in the network).
+                - Censorship resistance: it would be impractical for the network to selectively censor a piece of data in the hash-table
+                - Availability: pieces of data will likely still be in the network even in outage scenarios
           </fragment>
         </section>
 
@@ -668,16 +668,17 @@
 
             - Guarantees (continued):
               - 3rd guarantee: eventually consistency
-                - The data state converges to being free of internal contradiction                <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
+                - The data state converges to being free of internal contradiction               
                 - Relativity does not allow for a universally correct sequence of events
                   - So order of events in distributed systems is hard!
                 - The DHT is a CRDT (Conflict-free Replicated Data Types)
                   - Data structure that only implements commutative operations
                   - State machine that derives state from a series of operations
                   - Any agent given the same operations will arrive at the same end state (regardless of order)
-<!-- TODO: ask Art. - Reveals its own temporary inconsistencies
-                - Holochain provides a way to resolve the temporary inconsistencies-->          
           </fragment>   
+           <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
+<!-- TODO: ask Art. - Reveals its own temporary inconsistencies
+                - Holochain provides a way to resolve the temporary inconsistencies-->    
         </section>
 
         <section>
@@ -712,7 +713,9 @@
           </fragment>
         </section>
 
-
+        <section>
+          <h1>That's it!</h1>
+        </section>
 <!--         <section>
           <h3>DNA manifest & bundle</h3>
           <fragment language="markdown" animate="by-line with-ancestry">
