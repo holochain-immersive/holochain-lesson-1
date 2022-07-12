@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "reveal.js": "^4.3.1",
-    "reveal.js-animate-fragments": "^0.0.8",
+    "reveal.js-animate-fragments": "^0.0.9",
     "reveal.js-nested-fragments": "^0.0.2",
     "typed-js": "^0.2.3"
   },
