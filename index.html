@@ -1,116 +1,126 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="Description" content="Put your description here.">
-    <base href="/">
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #ededed;
-        --r-main-font-size: 24px;
-        --r-heading-margin: 20px 0 12px 0;
-      }
-      .slides {
-        width: 75% !important;
-      }
-      .container {
-        top: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-      }
-      .column {
-        display: flex;
-        flex-direction: column;
-      }
-      .row {
-        display: flex;
-        flex-direction: row;
-      }
-      section {
-        text-align: left;
-      }
-      
-      .popover {
-        position: absolute;
-        background-color: #4d4d4d;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-        border-radius: 10px;
-        width: auto;
-        transform: translate(16px, -15px);
-      }
-      .popover:after {
-        content: "";
-        position: absolute;
-        top: 6px;
-        left: -8px;
-        border-style: solid;
-        border-width: 18px 12px 0;
-        border-color: #4d4d4d transparent;
-        display: block;
-        width: 0;
-        z-index: 1;
-        transform: translate(-50%, 50%) rotate(90deg);
-      }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+      --r-main-font-size: 24px;
+      --r-heading-margin: 20px 0 12px 0;
+    }
 
-      .popover .hljs-meta,
-      .popover .hljs-class,
-      .popover .hljs-keyword,
-      .popover .hljs-string,
-      .popover .hljs-title {
-        color: rgb(221, 221, 221) !important;
-        font-weight: normal;
-      }
-      .reveal pre code {
-        max-height: 800px !important;
-      }
-      .zome {
-        background-color: blue;
-      }
-      
-      .dna,
-      .cell,
-      .zome,
-      .coordinator-zomes,
-      .integrity-zomes,
-      .source-chain,
-      .happ-bundle,
-      .box,
-      .dna-bundle,
-      .dht-shard,
-      .conductor,
-      .happ {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-        border-width: 3px;
-        border-color: rgb(209, 209, 209);
-        border-style: solid;
-      }
-      .coordinator-zomes,
-      .integrity-zomes {
-        border-style: dashed;
-      }
-    </style>
-    <link rel="stylesheet" href="holochain-lesson-1/bce6cb85.css">
-    <link rel="stylesheet" href="holochain-lesson-1/5265d60d.css">
-    <link rel="stylesheet" href="holochain-lesson-1/86125abe.css">
-    <title>Holochain Lesson 1</title>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
+    .slides {
+      width: 75% !important;
+    }
 
-        <section>
+    .container {
+      top: 0 !important;
+      display: flex !important;
+      flex-direction: row !important;
+    }
 
-          <h1>Holochain Fundamentals</h1>
-        </section>
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
 
-        <section>
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    section {
+      text-align: left;
+    }
+
+    .popover {
+      position: absolute;
+      background-color: #4d4d4d;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      border-radius: 10px;
+      width: auto;
+      transform: translate(16px, -15px);
+    }
+
+    .popover:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: -8px;
+      border-style: solid;
+      border-width: 18px 12px 0;
+      border-color: #4d4d4d transparent;
+      display: block;
+      width: 0;
+      z-index: 1;
+      transform: translate(-50%, 50%) rotate(90deg);
+    }
+
+    .popover .hljs-meta,
+    .popover .hljs-class,
+    .popover .hljs-keyword,
+    .popover .hljs-string,
+    .popover .hljs-title {
+      color: rgb(221, 221, 221) !important;
+      font-weight: normal;
+    }
+
+    .reveal pre code {
+      max-height: 800px !important;
+    }
+
+    .zome {
+      background-color: blue;
+    }
+
+    .dna,
+    .cell,
+    .zome,
+    .coordinator-zomes,
+    .integrity-zomes,
+    .source-chain,
+    .happ-bundle,
+    .box,
+    .dna-bundle,
+    .dht-shard,
+    .conductor,
+    .happ {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border-width: 3px;
+      border-color: rgb(209, 209, 209);
+      border-style: solid;
+    }
+
+    .coordinator-zomes,
+    .integrity-zomes {
+      border-style: dashed;
+    }
+  </style>
+  <link rel="stylesheet" href="holochain-lesson-1/bce6cb85.css">
+  <link rel="stylesheet" href="holochain-lesson-1/5265d60d.css">
+  <link rel="stylesheet" href="holochain-lesson-1/86125abe.css">
+  <title>Holochain Lesson 1</title>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+
+        <h1>Holochain Fundamentals</h1>
+      </section>
+
+      <!-- <section>
 
           <h2>Holochain Architecture</h2>
           <div class="row">
@@ -137,15 +147,21 @@
                 </div>
               </div>
             </div>
-            <div style="
+            <div
+            style="
               margin-left: 24px;
               position: relative;
               flex: 1;
               justify-content: center;
               align-items: center;
               padding: 40px;
-            " class="column">
-            <div class="column" style="margin-top: 30px; margin-bottom: 400px">
+            "
+            class="column"
+          >
+            <div
+              class="column"
+              style="margin-top: 30px; margin-bottom: 400px"
+            >
               <div class="cell column">
                 Cell 1
                 <div class="dna">DNA 1</div>
@@ -153,12 +169,15 @@
                 <div class="dht-shard">DHT Shard</div>
               </div>
             </div>
-            <div class="conductor column" style="
+            <div
+              class="conductor column"
+              style="
                 position: absolute;
                 height: 100%;
                 width: 100%;
                 justify-content: start;
-              ">
+              "
+            >
               <span>Conductor</span>
               <div class="column happ" style="">
                 Happ 1
@@ -178,311 +197,531 @@
             </div>
           </div>
             <div class="column" style="align-items: center">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="272px" height="232px" viewBox="-0.5 -0.5 572 532">
-                <defs></defs>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                width="272px"
+                height="232px"
+                viewBox="-0.5 -0.5 572 532"
+              >
+                <defs />
                 <g>
-                  <ellipse cx="40" cy="210" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="530" cy="210" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="440" cy="490" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="290" cy="40" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="150" cy="490" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <path d="M 121.72 461.72 L 40 250" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 68.28 181.72 L 250.4 50.16" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 190 490 L 400 490" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 468.28 461.72 L 530 250" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 501.72 181.72 L 330 40" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 490 210 L 80 210" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 150 450 L 290 80" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 440 450 L 290 80" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 411.72 461.72 L 68.28 238.28" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 178.28 461.72 L 501.72 238.28" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
+                  <ellipse
+                    cx="40"
+                    cy="210"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="530"
+                    cy="210"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="440"
+                    cy="490"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="290"
+                    cy="40"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="150"
+                    cy="490"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <path
+                    d="M 121.72 461.72 L 40 250"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 68.28 181.72 L 250.4 50.16"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 190 490 L 400 490"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 468.28 461.72 L 530 250"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 501.72 181.72 L 330 40"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 490 210 L 80 210"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 150 450 L 290 80"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 440 450 L 290 80"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 411.72 461.72 L 68.28 238.28"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 178.28 461.72 L 501.72 238.28"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
                 </g>
               </svg>
               <span>DHT for DNA 1</span>
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="272px" height="232px" viewBox="-0.5 -0.5 572 532">
-                <defs></defs>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                width="272px"
+                height="232px"
+                viewBox="-0.5 -0.5 572 532"
+              >
+                <defs />
                 <g>
-                  <ellipse cx="40" cy="210" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="530" cy="210" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="440" cy="490" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="290" cy="40" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <ellipse cx="150" cy="490" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"></ellipse>
-                  <path d="M 121.72 461.72 L 40 250" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 68.28 181.72 L 250.4 50.16" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 190 490 L 400 490" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 468.28 461.72 L 530 250" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 501.72 181.72 L 330 40" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 490 210 L 80 210" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 150 450 L 290 80" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 440 450 L 290 80" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 411.72 461.72 L 68.28 238.28" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
-                  <path d="M 178.28 461.72 L 501.72 238.28" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke"></path>
+                  <ellipse
+                    cx="40"
+                    cy="210"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="530"
+                    cy="210"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="440"
+                    cy="490"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="290"
+                    cy="40"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <ellipse
+                    cx="150"
+                    cy="490"
+                    rx="40"
+                    ry="40"
+                    fill="rgb(255, 255, 255)"
+                    stroke="rgb(0, 0, 0)"
+                    pointer-events="all"
+                  />
+                  <path
+                    d="M 121.72 461.72 L 40 250"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 68.28 181.72 L 250.4 50.16"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 190 490 L 400 490"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 468.28 461.72 L 530 250"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 501.72 181.72 L 330 40"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 490 210 L 80 210"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 150 450 L 290 80"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 440 450 L 290 80"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 411.72 461.72 L 68.28 238.28"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
+                  <path
+                    d="M 178.28 461.72 L 501.72 238.28"
+                    fill="none"
+                    stroke="white"
+                    stroke-miterlimit="10"
+                    pointer-events="stroke"
+                  />
                 </g>
               </svg>
               <span>DHT for DNA 2</span>
             </div>
 
-          </div>
-          <!-- TODO: I think we need to explain the basics of validation rules in this 10.000 ft view, to connect dots and create curiosity for the weekend-->
-        </section>
+          </div> -->
+      <!-- TODO: I think we need to explain the basics of validation rules in this 10.000 ft view, to connect dots and create curiosity for the weekend-->
+      <!-- </section> -->
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Desirable features of a peer-to-peer network
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Desirable features of a peer-to-peer network
 
-            - Scalable
-              - No consensus, peers can change state without having all the other peers agree
-            - Data availability
-              - Resilient to network partitions
-            - Consistency
-              - Data never reaches an irreconcilable state
-            - Resilient to bad actors
-              - If some node is not behaving according to the rules of the game, they can be easily identified and protected against
-          </fragment>
-        </section>
+          - Scalable
+          - No consensus, peers can change state without having all the other peers agree
+          - Data availability
+          - Resilient to network partitions
+          - Consistency
+          - Data never reaches an irreconcilable state
+          - Resilient to bad actors
+          - If some node is not behaving according to the rules of the game, they can be easily identified and protected
+          against
+        </fragment>
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Hash-Table
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Hash-Table
 
-            - Key-value store that allocates a bigger chunk of memory than necessary
-            - To insert a value, we hash the **key**, and put the content in the position of memory that corresponds to that hash
-            - Constant lookup and write time
+          - Key-value store that allocates a bigger chunk of memory than necessary
+          - To insert a value, we hash the **key**, and put the content in the position of memory that corresponds to
+          that hash
+          - Constant lookup and write time
 
-            ### Cryptographic Hash-Table
-          
-            - Key-value store where the key is the cryptographic hash of the **value**
-            - After lookup, you can hash the retrieved value again, compare it to the input key, and verify that you are not being lied to
+          ### Cryptographic Hash-Table
 
-            ### Distributed cryptographic Hash-Table (DHTs)
-          
-            - Cryptographic Hash-Table where the hash-table is spread accross many nodes
-            - Each node can make a get request with the hash of some value, and the network will return the value itself
-            - Each node may share some responsability to host data and route queries
-          </fragment>   
-        </section>
+          - Key-value store where the key is the cryptographic hash of the **value**
+          - After lookup, you can hash the retrieved value again, compare it to the input key, and verify that you are
+          not being lied to
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Agent
+          ### Distributed cryptographic Hash-Table (DHTs)
 
-            - Defined by a private-public key pair
-              - For cryptographically signing 
-              - Others can cryptographically verify these signatures
-            - Action Ledger
-              - Sequence of all the actions that an agent has taken in a social container
-              - Signed by the agent
-              - Merkle trees can create unfalsifiable ledgers 
-          </fragment>
-        </section>
+          - Cryptographic Hash-Table where the hash-table is spread accross many nodes
+          - Each node can make a get request with the hash of some value, and the network will return the value itself
+          - Each node may share some responsability to host data and route queries
+        </fragment>
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Merkle Trees
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Agent
 
-            - A merkle tree (technically a DAG) is one where new nodes reference one or more prior nodes by its hash
-            - It's impossible to change a node in a merkle tree without changing all of downstream nodes as well (or else invalidating the hashes)
-              - Undetected tampering is impossible
-            - A merkle chain is a merkle tree without branching
-          </fragment>
-        </section>
+          - Defined by a private-public key pair
+          - For cryptographically signing
+          - Others can cryptographically verify these signatures
+          - Action Ledger
+          - Sequence of all the actions that an agent has taken in a social container
+          - Signed by the agent
+          - Merkle trees can create unfalsifiable ledgers
+        </fragment>
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Integrity Code and Data
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Merkle Trees
 
-            - Using cryptography to achieve a binding network integrity contract
-              - Unique integrity hash specifies a unique network
-            - The integrity hash is generated from:
-              - Integrity Code (shared by all peers)
-                  - Defining Validation Rules
-              - Integrity Data (shared by all peers)
-                - Properties
-                  - Arbitrary configuration data
-                - Network Seed
-                  - Glorified property to uniquify equivalent looking networks
-          </fragment>
-        </section>
+          - A merkle tree (technically a DAG) is one where new nodes reference one or more prior nodes by its hash
+          - It's impossible to change a node in a merkle tree without changing all of downstream nodes as well (or else
+          invalidating the hashes)
+          - Undetected tampering is impossible
+          - A merkle chain is a merkle tree without branching
+        </fragment>
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Personal Code and Data
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Integrity Code and Data
 
-            - Personal Code
-              - User configurable client behaviour that won't infringe on their integrity code constraints
-              - Private to each user unless disclosed
-            - Personal Data
-              - Items in the action ledger are private until disclosed
-          </fragment>
-        </section>
+          - Using cryptography to achieve a binding network integrity contract
+          - Unique integrity hash specifies a unique network
+          - The integrity hash is generated from:
+          - Integrity Code (shared by all peers)
+          - Defining Validation Rules
+          - Integrity Data (shared by all peers)
+          - Properties
+          - Arbitrary configuration data
+          - Network Seed
+          - Glorified property to uniquify equivalent looking networks
+        </fragment>
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### DNA &amp; Zomes 
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Personal Code and Data
 
-            - DNA
-              - Holochain's implementation of integrity &amp; personal code pattern
-              - Bundle of reusable source code modules
-                - Called "zomes" in Holochain
-                - Each zome is a rust crate
-            - Integrity Zomes
-              - In Holochain, your integrity code is your ticket into a unique DHT
-              - They define validation rules
-            - Coordinator Zomes
-              - Reusable modules of personal code
-              - Contains things like CRUD functions and event hooks
-          </fragment>
-        </section>
+          - Personal Code
+          - User configurable client behaviour that won't infringe on their integrity code constraints
+          - Private to each user unless disclosed
+          - Personal Data
+          - Items in the action ledger are private until disclosed
+        </fragment>
+      </section>
 
-        <section>
-          <div style="flex: 1">
-            <div class="column dna fragment">
-              <span> Collaborative document DNA </span>
-                <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
-                  <span style="margin-bottom: 8px;">Coordinators</span>
-                  <div class="row">
-                    <div class="zome">Document</div>
-                    <div class="zome">Comments</div>
-                    <div class="zome">Role</div>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### DNA &amp; Zomes
+
+          - DNA
+          - Holochain's implementation of integrity &amp; personal code pattern
+          - Bundle of reusable source code modules
+          - Called "zomes" in Holochain
+          - Each zome is a rust crate
+          - Integrity Zomes
+          - In Holochain, your integrity code is your ticket into a unique DHT
+          - They define validation rules
+          - Coordinator Zomes
+          - Reusable modules of personal code
+          - Contains things like CRUD functions and event hooks
+        </fragment>
+      </section>
+
+      <section>
+        <div style="flex: 1">
+          <div class="column dna fragment">
+            <span> Collaborative document DNA </span>
+            <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
+              <span style="margin-bottom: 8px;">Coordinators</span>
+              <div class="row">
+                <div class="zome">Document</div>
+                <div class="zome">Comments</div>
+                <div class="zome">Role</div>
+              </div>
+            </div>
+            <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px;">
+              <span style="margin-bottom: 8px;">Integrity</span>
+              <div class="row">
+                <div class="zome">Document</div>
+                <div class="zome">Comments</div>
+                <div class="zome">Role <div class="popover fragment">
+                    For example: an agent might only be allowed to update the document if they have the
+                    "Editor" role
                   </div>
                 </div>
-                <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px;">
-                  <span style="margin-bottom: 8px;">Integrity</span>
-                  <div class="row">
-                    <div class="zome">Document</div>
-                    <div class="zome">Comments</div>
-                    <div class="zome">Role <div class="popover fragment">
-                        For example: an agent might only be allowed to update the document if they have the
-                        "Editor" role
-                    </div>
-                  </div>
-              </div>
               </div>
             </div>
           </div>
+        </div>
       </section>
-      
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Cell
 
-            - Unique per-agent instantiation of a DNA
-                - Is identified by the union of:
-                  - Agent ID
-                  - Integrity hash 
-                    - Called "DNA hash" throughout Holochain docs
-            - Has access to:
-                - A private data storage: the source chain
-                - A shared and public data storage: the DHT
-            - Only accessible via permissioned zome function calls:
-                - By an external process connected to the Conductor (eg. GUIs)
-                - By other cells from its network (with the same integrity hash)
-                - By other cells in the same conductor
-            - Can receive these parameters when it is instantiated:
-                - New properties or network seed
-                  - Which would change the resulting integrity hash
-                - Membrane proof
-                  - Which may be required to instantiate the Cell
-          </fragment>   
-        </section>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Cell
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Source Chain
+          - Unique per-agent instantiation of a DNA
+          - Is identified by the union of:
+          - Agent ID
+          - Integrity hash
+          - Called "DNA hash" throughout Holochain docs
+          - Has access to:
+          - A private data storage: the source chain
+          - A shared and public data storage: the DHT
+          - Only accessible via permissioned zome function calls:
+          - By an external process connected to the Conductor (eg. GUIs)
+          - By other cells from its network (with the same integrity hash)
+          - By other cells in the same conductor
+          - Can receive these parameters when it is instantiated:
+          - New properties or network seed
+          - Which would change the resulting integrity hash
+          - Membrane proof
+          - Which may be required to instantiate the Cell
+        </fragment>
+      </section>
 
-            - Holochain's implementation of an agent's unfalsifiable action ledger
-            - Each Cell controls its own local source chain
-            - The chain contains all the actions that a Cell has taken
-            - Actions are announced publicly within the scope of the network
-              - If any action was private, then agents would be able to fork their chain undetected
-            - Actions may be accompanied or not by some entry (as determined by the application)
-              - Entries may be private or public
-              - The union of an action and its entry (if existent) is called a "record"
-            - Actions contain:
-              - Hash of the previous action
-              - Author's public key
-              - Timestamp
-              - Entry hash, if it's accompanied by an entry
-            - Actions are signed by its author            
-            - At boot time, each source chain will be instantiated with 3 records:
-              - DNA: includes the integrity hash
-              - AgentValidationPackage: joining proof that satisfies the requirements that the validation rules declare, making the 3rd record valid
-              - Create record of its own agent public key
-          </fragment>   
-        </section>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Source Chain
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Holochain's DHT (I)
+          - Holochain's implementation of an agent's unfalsifiable action ledger
+          - Each Cell controls its own local source chain
+          - The chain contains all the actions that a Cell has taken
+          - Actions are announced publicly within the scope of the network
+          - If any action was private, then agents would be able to fork their chain undetected
+          - Actions may be accompanied or not by some entry (as determined by the application)
+          - Entries may be private or public
+          - The union of an action and its entry (if existent) is called a "record"
+          - Actions contain:
+          - Hash of the previous action
+          - Author's public key
+          - Timestamp
+          - Entry hash, if it's accompanied by an entry
+          - Actions are signed by its author
+          - At boot time, each source chain will be instantiated with 3 records:
+          - DNA: includes the integrity hash
+          - AgentValidationPackage: joining proof that satisfies the requirements that the validation rules declare,
+          making the 3rd record valid
+          - Create record of its own agent public key
+        </fragment>
+      </section>
 
-            - Two types of network queries:
-              - Get a value from its hash
-              - Get the metadata attached to a given hash
-            - Guarantees:
-              - 1st guarantee: data integrity:
-                - You can verify that the data is correct since you can hash it again like in any cryptographic hash-table.
-                - Records are guaranteed to come from its author because they are signed.
-              - 2nd guarantee: the DHT is resilient:
-                - Censorship resistance: it would be impractical for the network to selectively censor a piece of data in the hash-table
-                - Availability: pieces of data will likely still be in the network even in outage scenarios
-          </fragment>
-        </section>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Holochain's DHT (I)
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Holochain's DHT (II)
+          - Two types of network queries:
+          - Get a value from its hash
+          - Get the metadata attached to a given hash
+          - Guarantees:
+          - 1st guarantee: data integrity:
+          - You can verify that the data is correct since you can hash it again like in any cryptographic hash-table.
+          - Records are guaranteed to come from its author because they are signed.
+          - 2nd guarantee: the DHT is resilient:
+          - Censorship resistance: it would be impractical for the network to selectively censor a piece of data in the
+          hash-table
+          - Availability: pieces of data will likely still be in the network even in outage scenarios
+        </fragment>
+      </section>
 
-            - Guarantees (continued):
-              - 3rd guarantee: eventually consistency
-                - The data state converges to being free of internal contradiction               
-                - Relativity does not allow for a universally correct sequence of events
-                  - So order of events in distributed systems is hard!
-                - The DHT is a CRDT (Conflict-free Replicated Data Types)
-                  - Data structure that only implements commutative operations
-                  - State machine that derives state from a series of operations
-                  - Any agent given the same operations will arrive at the same end state (regardless of order)
-          </fragment>   
-           <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
-<!-- TODO: ask Art. - Reveals its own temporary inconsistencies
-                - Holochain provides a way to resolve the temporary inconsistencies-->    
-        </section>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Holochain's DHT (II)
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### hApp (Holochain App)
-            
-            - A local collection of cells, among which an agent id is shared
-              - Can depend on cells from other hApps
-            - Each cell has its own role ID within the hApp
-              - Eg: in a file storage app, you may have two cells installed:
-                - “main”: the DHT that everyone using the app will join
-                - “file_storage_provider”: only joined by high-storage nodes
-          </fragment>   
-        </section>
+          - Guarantees (continued):
+          - 3rd guarantee: eventually consistency
+          - The data state converges to being free of internal contradiction
+          - Relativity does not allow for a universally correct sequence of events
+          - So order of events in distributed systems is hard!
+          - The DHT is a CRDT (Conflict-free Replicated Data Types)
+          - Data structure that only implements commutative operations
+          - State machine that derives state from a series of operations
+          - Any agent given the same operations will arrive at the same end state (regardless of order)
+        </fragment>
+        <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
+        <!-- TODO: ask Art. - Reveals its own temporary inconsistencies
+                - Holochain provides a way to resolve the temporary inconsistencies-->
+      </section>
 
-        <section>
-          <fragment language="markdown" animate="by-line with-ancestry">
-            ### Conductor: the Holochain node
-            
-            - Local process housing all of your running happs
-            - Offers a sandboxed execution environment with limited capacities for each cell
-              - No access OS level APIs (eg. filesystem, http)
-            - Provides a mechanism of communication across cells
-            - Manages all network communications
-            - Exposes two types of interface, accessible via websockets:
-              - App Interface
-                - Can route zome function calls to appropriate cell
-                - Can route push signals from cells to subscribers
-              - Admin Interface
-                - Cannot be accessed from an app
-                - Receives admin commands to manage apps (eg. install, uninstall, enable, or list apps)
-          </fragment>
-        </section>
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### hApp (Holochain App)
 
-        <section>
-          <h1>That's it!</h1>
-        </section>
-<!--         <section>
+          - A local collection of cells, among which an agent id is shared
+          - Can depend on cells from other hApps
+          - Each cell has its own role ID within the hApp
+          - Eg: in a file storage app, you may have two cells installed:
+          - “main”: the DHT that everyone using the app will join
+          - “file_storage_provider”: only joined by high-storage nodes
+        </fragment>
+      </section>
+
+      <section>
+        <fragment language="markdown" animate="by-line with-ancestry">
+          ### Conductor: the Holochain node
+
+          - Local process housing all of your running happs
+          - Offers a sandboxed execution environment with limited capacities for each cell
+          - No access OS level APIs (eg. filesystem, http)
+          - Provides a mechanism of communication across cells
+          - Manages all network communications
+          - Exposes two types of interface, accessible via websockets:
+          - App Interface
+          - Can route zome function calls to appropriate cell
+          - Can route push signals from cells to subscribers
+          - Admin Interface
+          - Cannot be accessed from an app
+          - Receives admin commands to manage apps (eg. install, uninstall, enable, or list apps)
+        </fragment>
+      </section>
+
+      <section>
+        <h1>That's it!</h1>
+      </section>
+      <!--         <section>
           <h3>DNA manifest & bundle</h3>
           <fragment language="markdown" animate="by-line with-ancestry">
           - Manifest declares:
@@ -512,11 +751,11 @@
         </fragment>
         </section>
  -->
-       
-        <!-- TODO: Talk about DHT Ops at the end of this lesson or in the beginning of the next one? -->
-      </div>
+
+      <!-- TODO: Talk about DHT Ops at the end of this lesson or in the beginning of the next one? -->
     </div>
-    
+  </div>
   
+
 
 <script type="module" src="./holochain-lesson-1/1d651539.js"></script></body></html>
