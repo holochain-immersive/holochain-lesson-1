@@ -38,6 +38,10 @@
         text-align: left;
       }
       
+      .popover-anchor {
+        position: relative;
+      }
+
       .popover {
         position: absolute;
         background-color: #4d4d4d;
@@ -45,7 +49,8 @@
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
         border-radius: 10px;
         width: auto;
-        transform: translate(16px, -15px);
+        top: 0;
+        left: 130%;
       }
       .popover:after {
         content: "";
@@ -586,7 +591,7 @@
                   <div class="row" >
                     <div class="zome">Document</div>
                     <div class="zome">Comments</div>
-                    <div class="zome">Role <div class="popover fragment">
+                    <div class="zome popover-anchor">Role <div class="popover fragment" style="width: 230px">
                         For example: an agent might only be allowed to update the document if they have the
                         "Editor" role
                     </div>
