@@ -38,6 +38,10 @@
         text-align: left;
       }
       
+      .popover-anchor {
+        position: relative;
+      }
+
       .popover {
         position: absolute;
         background-color: #4d4d4d;
@@ -45,7 +49,8 @@
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
         border-radius: 10px;
         width: auto;
-        transform: translate(16px, -15px);
+        top: 0;
+        left: 130%;
       }
       .popover:after {
         content: "";
