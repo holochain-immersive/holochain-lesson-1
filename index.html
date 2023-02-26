@@ -566,30 +566,31 @@
         <section>
           <div style="flex: 1">
             <div class="column dna fragment">
-              <span> Collaborative document DNA </span>
-                <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
-                  <span style="margin-bottom: 8px;">Coordinators</span>
-                  <div class="row">
-                    <div class="zome">Document</div>
-                    <div class="zome">Comments</div>
-                    <div class="zome">Role</div>
-                  </div>
+              <span> DNA (for A Collaborative Document Editor) </span>
+              <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
+                <span style="margin-bottom: 8px;">Coordinator Zome Bundle</span>
+                <div class="row">
+                  <div class="fragment zome">Document Coordinator Zome</div>
+                  <div class="fragment zome">Comments Coordinator Zome</div>
+                  <div class="fragment zome">Roles Coordinator Zome</div>
                 </div>
-                <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px;">
-                  <span style="margin-bottom: 8px;">Integrity</span>
-                  <div class="row">
-                    <div class="zome">Document</div>
-                    <div class="zome">Comments</div>
-                    <div class="zome popover-anchor">Role <div class="popover fragment" style="width: 230px">
-                        For example: an agent might only be allowed to update the document if they have the
-                        "Editor" role
+              </div>
+              <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px;">
+                <span style="margin-bottom: 8px;">Integrity Zome Bundle</span>
+                <div class="row">
+                  <div class="fragment zome">Document Integrity Zome</div>
+                  <div class="fragment zome">Comments Integrity Zome</div>
+                  <div class="fragment zome">Roles Integrity Zome
+                    <div class="popover fragment">
+                      For example: an agent might only be allowed to update the document if they have the
+                      "Editor" role
                     </div>
                   </div>
-              </div>
+                </div>
               </div>
             </div>
           </div>
-      </section>
+        </section>
       
         <section>
           <fragment language="markdown" animate="by-line with-ancestry">
@@ -622,17 +623,17 @@
             - Holochain's implementation of an agent's unfalsifiable action ledger
             - Each Cell controls its own local source chain
             - The chain contains all the actions that a Cell has taken
-            - Actions are announced publicly within the scope of the network
+            - An action is announced publicly within the scope of the network
               - If any action was private, then agents would be able to fork their chain undetected
-            - Actions may be accompanied or not by some entry (as determined by the application)
+            - An action may be accompanied or not by some entry (as determined by the application)
               - Entries may be private or public
               - The union of an action and its entry (if existent) is called a "record"
-            - Actions contain:
+            - An action contains:
               - Hash of the previous action
               - Author's public key
               - Timestamp
               - Entry hash, if it's accompanied by an entry
-            - Actions are signed by its author            
+            - An action is signed by its author
             - At boot time, each source chain will be instantiated with 3 records:
               - DNA: includes the integrity hash
               - AgentValidationPackage: joining proof that satisfies the requirements that the validation rules declare, making the 3rd record valid
@@ -662,7 +663,7 @@
             ### Holochain's DHT (II)
 
             - Guarantees (continued):
-              - 3rd guarantee: eventually consistency
+              - 3rd guarantee: eventual consistency
                 - The data state converges to being free of internal contradiction               
                 - Relativity does not allow for a universally correct sequence of events
                   - So order of events in distributed systems is hard!
@@ -684,7 +685,7 @@
               - Can depend on cells from other hApps
             - Each cell has its own role ID within the hApp
               - Eg: in a file storage app, you may have two cells installed:
-                - “main”: the DHT that everyone using the app will join
+                - “main”: the DHT that everyone joins to using the app
                 - “file_storage_provider”: only joined by high-storage nodes
           </fragment>   
         </section>
@@ -694,8 +695,9 @@
             ### Conductor: the Holochain node
             
             - Local process housing all of your running happs
-            - Offers a sandboxed execution environment with limited capacities for each cell
-              - No access OS level APIs (eg. filesystem, http)
+            - Offers a sandboxed execution environment to each cell
+              - Provides limited capacities
+              - No access to OS level APIs (eg. filesystem, http)
             - Provides a mechanism of communication across cells
             - Manages all network communications
             - Exposes two types of interface, accessible via websockets:
