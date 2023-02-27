@@ -50,7 +50,9 @@
         border-radius: 10px;
         width: auto;
         top: 0;
-        left: 130%;
+        left: 100%;
+        transform: translateX(20px);
+        min-width: 10em;
       }
       .popover:after {
         content: "";
@@ -591,7 +593,7 @@
                 <div class="row" >
                   <div class="fragment zome">Document Integrity Zome</div>
                   <div class="fragment zome">Comments Integrity Zome</div>
-                  <div class="fragment zome">Roles Integrity Zome
+                  <div class="fragment zome popover-anchor">Roles Integrity Zome
                     <div class="popover fragment">
                       For example: an agent might only be allowed to update the document if they have the
                       "Editor" role
