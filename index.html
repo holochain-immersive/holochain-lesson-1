@@ -32,7 +32,7 @@
       section {
         text-align: left;
       }
-      
+
       .popover-anchor {
         position: relative;
       }
@@ -77,7 +77,7 @@
       .zome {
         background-color: blue;
       }
-      
+
       .dna,
       .cell,
       .zome,
@@ -111,9 +111,7 @@
   <body>
     <div class="reveal">
       <div class="slides">
-
         <section>
-
           <h1>Holochain Fundamentals</h1>
         </section>
 
@@ -453,10 +451,11 @@
             </div>
 
           </div> -->
-          <!-- TODO: I think we need to explain the basics of validation rules in this 10.000 ft view, to connect dots and create curiosity for the weekend-->
+        <!-- TODO: I think we need to explain the basics of validation rules in this 10.000 ft view, to connect dots and create curiosity for the weekend-->
         <!-- </section>  -->
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Desirable features of a peer-to-peer network
 
@@ -473,6 +472,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Hash-Table
 
@@ -490,10 +490,11 @@
             - Cryptographic Hash-Table where the hash-table is spread accross many nodes
             - Each node can make a get request with the hash of some value, and the network will return the value itself
             - Each node may share some responsability to host data and route queries
-          </fragment>   
+          </fragment>
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Agent
 
@@ -508,6 +509,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Merkle Trees
 
@@ -519,6 +521,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Integrity Code and Data
 
@@ -536,6 +539,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Personal Code and Data
 
@@ -548,6 +552,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### DNA &amp; Zomes 
 
@@ -570,22 +575,23 @@
             <div class="column dna fragment">
               <span> DNA (for A Collaborative Document Editor) </span>
               <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
-                <span style="margin-bottom: 8px;">Coordinator Zome Bundle</span>
+                <span style="margin-bottom: 8px">Coordinator Zome Bundle</span>
                 <div class="row">
                   <div class="fragment zome">Document Coordinator Zome</div>
                   <div class="fragment zome">Comments Coordinator Zome</div>
                   <div class="fragment zome">Roles Coordinator Zome</div>
                 </div>
               </div>
-              <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px;">
-                <span style="margin-bottom: 8px;">Integrity Zome Bundle</span>
+              <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px">
+                <span style="margin-bottom: 8px">Integrity Zome Bundle</span>
                 <div class="row">
                   <div class="fragment zome">Document Integrity Zome</div>
                   <div class="fragment zome">Comments Integrity Zome</div>
-                  <div class="fragment zome popover-anchor">Roles Integrity Zome
+                  <div class="fragment zome popover-anchor">
+                    Roles Integrity Zome
                     <div class="popover fragment">
-                      For example: an agent might only be allowed to update the document if they have the
-                      "Editor" role
+                      For example: an agent might only be allowed to update the
+                      document if they have the "Editor" role
                     </div>
                   </div>
                 </div>
@@ -593,8 +599,9 @@
             </div>
           </div>
         </section>
-      
+
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Cell
 
@@ -615,10 +622,11 @@
                   - Which would change the resulting integrity hash
                 - Membrane proof
                   - Which may be required to instantiate the Cell
-          </fragment>   
+          </fragment>
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Source Chain
 
@@ -640,10 +648,11 @@
               - DNA: includes the integrity hash
               - AgentValidationPackage: joining proof that satisfies the requirements that the validation rules declare, making the 3rd record valid
               - Create record of its own agent public key
-          </fragment>   
+          </fragment>
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Holochain's DHT (I)
 
@@ -661,6 +670,7 @@
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Holochain's DHT (II)
 
@@ -673,26 +683,28 @@
                   - Data structure that only implements commutative operations
                   - State machine that derives state from a series of operations
                   - Any agent given the same operations will arrive at the same end state (regardless of order)
-          </fragment>   
-           <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
-<!-- TODO: ask Art. - Reveals its own temporary inconsistencies
-                - Holochain provides a way to resolve the temporary inconsistencies-->    
+          </fragment>
+          <!-- TODO: how to say this exactly? There is a guarantee that operations will get to you eventually -->
+          <!-- TODO: ask Art. - Reveals its own temporary inconsistencies
+                - Holochain provides a way to resolve the temporary inconsistencies-->
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### hApp (Holochain App)
             
             - A local collection of cells, among which an agent id is shared
               - Can depend on cells from other hApps
-            - Each cell has its own role ID within the hApp
+            - Each cell has its own role within the hApp
               - Eg: in a file storage app, you may have two cells installed:
                 - “main”: the DHT that everyone joins to using the app
                 - “file_storage_provider”: only joined by high-storage nodes
-          </fragment>   
+          </fragment>
         </section>
 
         <section>
+          <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Conductor: the Holochain node
             
@@ -715,7 +727,7 @@
         <section>
           <h1>That's it!</h1>
         </section>
-<!--         <section>
+        <!--         <section>
           <h3>DNA manifest & bundle</h3>
           <fragment language="markdown" animate="by-line with-ancestry">
           - Manifest declares:
@@ -745,7 +757,7 @@
         </fragment>
         </section>
  -->
-       
+
         <!-- TODO: Talk about DHT Ops at the end of this lesson or in the beginning of the next one? -->
       </div>
     </div>
