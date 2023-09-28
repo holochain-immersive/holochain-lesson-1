@@ -1,81 +1,19 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="Description" content="Put your description here.">
-    <base href="/">
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #ededed;
-        --r-main-font-size: 24px;
-        --r-heading-margin: 20px 0 12px 0;
-      }
-      .slides {
-        width: 75% !important;
-      }
-      .container {
-        top: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-      }
-      .column {
-        display: flex;
-        flex-direction: column;
-      }
-      .row {
-        display: flex;
-        flex-direction: row;
-      }
-      section {
-        text-align: left;
-      }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
 
+    
+
+    <style>
       .popover-anchor {
         position: relative;
-      }
-
-      .popover {
-        position: absolute;
-        background-color: #4d4d4d;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-        border-radius: 10px;
-        width: auto;
-        top: 0;
-        left: 100%;
-        transform: translateX(20px);
-        min-width: 10em;
-      }
-      .popover:after {
-        content: "";
-        position: absolute;
-        top: 6px;
-        left: -8px;
-        border-style: solid;
-        border-width: 18px 12px 0;
-        border-color: #4d4d4d transparent;
-        display: block;
-        width: 0;
-        z-index: 1;
-        transform: translate(-50%, 50%) rotate(90deg);
-      }
-
-      .popover .hljs-meta,
-      .popover .hljs-class,
-      .popover .hljs-keyword,
-      .popover .hljs-string,
-      .popover .hljs-title {
-        color: rgb(221, 221, 221) !important;
-        font-weight: normal;
-      }
-      .reveal pre code {
-        max-height: 800px !important;
-      }
-      .zome {
-        background-color: blue;
       }
 
       .dna,
@@ -90,23 +28,40 @@
       .dht-shard,
       .conductor,
       .happ {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 12px;
         border-width: 3px;
         border-color: rgb(209, 209, 209);
         border-style: solid;
+        background-color: unset !important;
+      }
+      .dna,
+      .cell,
+      .source-chain,
+      .happ-bundle,
+      .coordinator-zomes,
+      .integrity-zomes,
+      .box,
+      .dna-bundle,
+      .dht-shard,
+      .conductor,
+      .happ {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .zome {
+        text-align: center;
+        background-color: blue !important;
       }
       .coordinator-zomes,
       .integrity-zomes {
         border-style: dashed;
       }
     </style>
-    <link rel="stylesheet" href="holochain-lesson-1/bce6cb85.css">
-    <link rel="stylesheet" href="holochain-lesson-1/5265d60d.css">
-    <link rel="stylesheet" href="holochain-lesson-1/86125abe.css">
+
     <title>Holochain Lesson 1</title>
+    <script type="module" crossorigin src="/holochain-lesson-1/assets/index-46558aae.js"></script>
+    <link rel="stylesheet" href="/holochain-lesson-1/assets/index-481dd1c5.css">
   </head>
   <body>
     <div class="reveal">
@@ -554,10 +509,10 @@
         <section>
           <!-- prettier-ignore -->
           <fragment language="markdown" animate="by-line with-ancestry">
-            ### DNA &amp; Zomes 
+            ### DNA & Zomes 
 
             - DNA
-              - Holochain's implementation of integrity &amp; personal code pattern
+              - Holochain's implementation of integrity & personal code pattern
               - Bundle of reusable source code modules
                 - Called "zomes" in Holochain
                 - Each zome is a rust crate
@@ -574,7 +529,10 @@
           <div style="flex: 1">
             <div class="column dna fragment">
               <span> DNA (for A Collaborative Document Editor) </span>
-              <div class="column fragment coordinator-zomes" style="width: 90%; margin: 8px">
+              <div
+                class="column fragment coordinator-zomes"
+                style="width: 90%; margin: 8px"
+              >
                 <span style="margin-bottom: 8px">Coordinator Zome Bundle</span>
                 <div class="row">
                   <div class="fragment zome">Document Coordinator Zome</div>
@@ -582,17 +540,22 @@
                   <div class="fragment zome">Roles Coordinator Zome</div>
                 </div>
               </div>
-              <div class="column fragment integrity-zomes" style="width: 90%; margin: 8px">
+              <div
+                class="column fragment integrity-zomes"
+                style="width: 90%; margin: 8px"
+              >
                 <span style="margin-bottom: 8px">Integrity Zome Bundle</span>
                 <div class="row">
                   <div class="fragment zome">Document Integrity Zome</div>
                   <div class="fragment zome">Comments Integrity Zome</div>
                   <div class="fragment zome popover-anchor">
                     Roles Integrity Zome
-                    <div class="popover fragment">
-                      For example: an agent might only be allowed to update the
-                      document if they have the "Editor" role
-                    </div>
+                    <simple-popover class="fragment fade-in-then-out">
+                      <p>
+                        For example: an agent might only be allowed to update
+                        the document if they have the "Editor" role
+                      </p>
+                    </simple-popover>
                   </div>
                 </div>
               </div>
@@ -762,6 +725,5 @@
       </div>
     </div>
     
-  
-
-<script type="module" src="./holochain-lesson-1/1d651539.js"></script></body></html>
+  </body>
+</html>
