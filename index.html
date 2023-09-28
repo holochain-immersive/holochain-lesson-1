@@ -8,79 +8,17 @@
     />
     <meta name="Description" content="Put your description here." />
     <base href="/" />
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #ededed;
-        --r-main-font-size: 24px;
-        --r-heading-margin: 20px 0 12px 0;
-      }
-      .slides {
-        width: 75% !important;
-      }
-      .container {
-        top: 0 !important;
-        display: flex !important;
-        flex-direction: row !important;
-      }
-      .column {
-        display: flex;
-        flex-direction: column;
-      }
-      .row {
-        display: flex;
-        flex-direction: row;
-      }
-      section {
-        text-align: left;
-      }
 
+    <script type="module">
+      import "reveal.js/dist/reveal.css";
+      import "reveal.js/dist/theme/black.css";
+      import "reveal.js/plugin/highlight/monokai.css";
+      import "@mythosthesia/reveal-course-preset/styles.css";
+    </script>
+
+    <style>
       .popover-anchor {
         position: relative;
-      }
-
-      .popover {
-        position: absolute;
-        background-color: #4d4d4d;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-        border-radius: 10px;
-        width: auto;
-        top: 0;
-        left: 100%;
-        transform: translateX(20px);
-        min-width: 10em;
-      }
-      .popover:after {
-        content: "";
-        position: absolute;
-        top: 6px;
-        left: -8px;
-        border-style: solid;
-        border-width: 18px 12px 0;
-        border-color: #4d4d4d transparent;
-        display: block;
-        width: 0;
-        z-index: 1;
-        transform: translate(-50%, 50%) rotate(90deg);
-      }
-
-      .popover .hljs-meta,
-      .popover .hljs-class,
-      .popover .hljs-keyword,
-      .popover .hljs-string,
-      .popover .hljs-title {
-        color: rgb(221, 221, 221) !important;
-        font-weight: normal;
-      }
-      .reveal pre code {
-        max-height: 800px !important;
-      }
-      .zome {
-        background-color: blue;
       }
 
       .dna,
@@ -95,28 +33,37 @@
       .dht-shard,
       .conductor,
       .happ {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 12px;
         border-width: 3px;
         border-color: rgb(209, 209, 209);
         border-style: solid;
+        background-color: unset !important;
+      }
+      .dna,
+      .cell,
+      .source-chain,
+      .happ-bundle,
+      .coordinator-zomes,
+      .integrity-zomes,
+      .box,
+      .dna-bundle,
+      .dht-shard,
+      .conductor,
+      .happ {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .zome {
+        text-align: center;
+        background-color: blue !important;
       }
       .coordinator-zomes,
       .integrity-zomes {
         border-style: dashed;
       }
     </style>
-    <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
-    <link
-      rel="stylesheet"
-      href="/node_modules/reveal.js/dist/theme/black.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/node_modules/reveal.js/plugin/highlight/monokai.css"
-    />
+
     <title>Holochain Lesson 1</title>
   </head>
   <body>
@@ -606,10 +553,12 @@
                   <div class="fragment zome">Comments Integrity Zome</div>
                   <div class="fragment zome popover-anchor">
                     Roles Integrity Zome
-                    <div class="popover fragment">
-                      For example: an agent might only be allowed to update the
-                      document if they have the "Editor" role
-                    </div>
+                    <simple-popover class="fragment fade-in-then-out">
+                      <p>
+                        For example: an agent might only be allowed to update
+                        the document if they have the "Editor" role
+                      </p>
+                    </simple-popover>
                   </div>
                 </div>
               </div>
@@ -780,20 +729,10 @@
     </div>
     <script type="module">
       import Reveal from "reveal.js";
-      import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
-      import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
-      import RevealNotes from "reveal.js/plugin/notes/notes.esm.js";
-      import RevealAnimateFragments from "reveal.js-animate-fragments";
-      let deck = new Reveal({
-        transition: "none",
-        plugins: [
-          Markdown,
-          RevealHighlight,
-          RevealNotes,
-          RevealAnimateFragments,
-        ],
-      });
-      deck.initialize();
+      import { plugins, config } from "@mythosthesia/reveal-course-preset";
+
+      let deck = new Reveal();
+      deck.initialize(config);
     </script>
   </body>
 </html>
