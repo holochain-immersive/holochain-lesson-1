@@ -418,7 +418,7 @@
             ### Desirable features of a peer-to-peer network
 
             - Scalable
-              - No consensus, peers can change state without having all the other peers agree
+              - No consensus on the state of the system, peers can change state without having all the other peers agree
             - Data availability
               - Resilient to network partitions
             - Consistency
@@ -431,7 +431,7 @@
 
         <section>
           <!-- prettier-ignore -->
-          <fragment language="markdown" animate="by-line with-ancestry">
+          <fragment language="markdown" animate="by-line with-ancestry"><!-- what's a hash function? -->
             ### Hash-Table
 
             - Key-value store that allocates a bigger chunk of memory than necessary
@@ -453,7 +453,7 @@
 
         <section>
           <!-- prettier-ignore -->
-          <fragment language="markdown" animate="by-line with-ancestry">
+          <fragment language="markdown" animate="by-line with-ancestry"><!-- TODO: start with merkle trees first? --><!-- Visualization? -->
             ### Agent
 
             - Defined by a private-public key pair
@@ -471,7 +471,7 @@
           <fragment language="markdown" animate="by-line with-ancestry">
             ### Merkle Trees
 
-            - A merkle tree (technically a DAG) is one where new nodes reference one or more prior nodes by its hash
+            - A merkle tree (technically a DAG) is one where new nodes refer to one or more prior nodes by its hash
             - It's impossible to change a node in a merkle tree without changing all of downstream nodes as well (or else invalidating the hashes)
               - Undetected tampering is impossible
             - A merkle chain is a merkle tree without branching
@@ -486,7 +486,7 @@
             - Using cryptography to achieve a binding network integrity contract
               - Unique integrity hash specifies a unique network
             - The integrity hash is generated from:
-              - Integrity Code (shared by all peers)
+              - Integrity Code (shared by all peers) <!-- TODO: should we make the code vs data distinction here, or better in the integrity zomes part in the holochain section? -->
                   - Defining Validation Rules
               - Integrity Data (shared by all peers)
                 - Properties
@@ -573,16 +573,16 @@
 
             - Unique per-agent instantiation of a DNA
                 - Is identified by the union of:
-                  - Agent ID
+                  - Agent ID: a public key
                   - Integrity hash 
                     - Called "DNA hash" throughout Holochain docs
             - Has access to:
-                - A private data storage: the source chain
+                - A private data storage: the source chain <!-- TODO: we mention source chain before defining it! -->
                 - A shared and public data storage: the DHT
             - Only accessible via permissioned zome function calls:
                 - By an external process connected to the Conductor (eg. GUIs)
                 - By other cells from its network (with the same integrity hash)
-                - By other cells in the same conductor
+                - By other cells in the same conductor <!-- TODO: we mention conductor before defining it -->
             - Can receive these parameters when it is instantiated:
                 - New properties or network seed
                   - Which would change the resulting integrity hash
@@ -627,8 +627,8 @@
               - Get the metadata attached to a given hash
             - Guarantees:
               - 1st guarantee: data integrity:
-                - You can verify that the data is correct since you can hash it again like in any cryptographic hash-table.
-                - Records are guaranteed to come from its author because they are signed.
+                - You can verify that the data is correct since you can hash it again like in any cryptographic hash-table
+                - Records are guaranteed to come from its author because they are signed
               - 2nd guarantee: the DHT is resilient:
                 - Censorship resistance: it would be impractical for the network to selectively censor a piece of data in the hash-table
                 - Availability: pieces of data will likely still be in the network even in outage scenarios
@@ -693,7 +693,7 @@
         <section>
           <h1>That's it!</h1>
         </section>
-        <!--         <section>
+        <!--     TODO: where to put this?    <section>
           <h3>DNA manifest & bundle</h3>
           <fragment language="markdown" animate="by-line with-ancestry">
           - Manifest declares:
